@@ -1,5 +1,4 @@
--- Script tạo menu cơ bản trong Roblox
-
+-- Lấy Player và PlayerGui
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
@@ -8,6 +7,7 @@ local menuFrame = Instance.new("Frame")
 menuFrame.Size = UDim2.new(0.3, 0, 0.5, 0)
 menuFrame.Position = UDim2.new(0.35, 0, 0.25, 0)
 menuFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+menuFrame.Visible = false  -- Ẩn menu khi bắt đầu
 menuFrame.Parent = playerGui
 
 -- Tạo một Title cho menu
@@ -34,7 +34,7 @@ button1.Parent = menuFrame
 -- Khi nút được nhấn, thực hiện hành động
 button1.MouseButton1Click:Connect(function()
     print("Upgrade Power clicked!")
-    -- Bạn có thể thêm các chức năng hợp lệ ở đây, chẳng hạn như nâng cấp sức mạnh trong trò chơi.
+    -- Thực hiện các chức năng hợp lệ ở đây, ví dụ như nâng cấp sức mạnh trong trò chơi.
 end)
 
 -- Tạo một nút tắt menu
@@ -49,22 +49,4 @@ closeButton.TextSize = 20
 closeButton.Parent = menuFrame
 
 -- Khi nút Close được nhấn, ẩn menu
-closeButton.MouseButton1Click:Connect(function()
-    menuFrame.Visible = false
-end)
-
--- Tạo nút mở menu (có thể sử dụng phím hoặc nút bấm)
-local openButton = Instance.new("TextButton")
-openButton.Text = "Open Menu"
-openButton.Size = UDim2.new(0.2, 0, 0.1, 0)
-openButton.Position = UDim2.new(0.4, 0, 0, 0)
-openButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-openButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-openButton.Font = Enum.Font.Gotham
-openButton.TextSize = 20
-openButton.Parent = playerGui
-
--- Khi nhấn nút Open, hiện thị menu
-openButton.MouseButton1Click:Connect(function()
-    menuFrame.Visible = true
-end)
+closeButton.MouseButton1Click:Conn
